@@ -10,6 +10,11 @@ namespace MyGameCUI
     {
         static void Main(string[] args)
         {
+            CUI cui = new CUI();
+            do
+            {
+                cui.ShowPrompt();
+            } while (!cui.IsGameOver);
         }
     }
 }
