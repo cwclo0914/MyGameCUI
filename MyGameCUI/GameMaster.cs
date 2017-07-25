@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyGameCUI
 {
-    class Judge
+    class GameMaster
     {
     }
 }

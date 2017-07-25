@@ -46,6 +46,7 @@
     <Compile Include="AbstractDeck.cs" />
     <Compile Include="BattleField.cs" />
     <Compile Include="Card.cs" />
+    <Compile Include="CUI.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Effect.cs" />
     <Compile Include="Entity.cs" />
@@ -53,7 +54,7 @@
     <Compile Include="Grave.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="Instant.cs" />
-    <Compile Include="Judge.cs" />
+    <Compile Include="GameMaster.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
