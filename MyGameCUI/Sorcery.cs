@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace MyGameCUI
 {
-    class Sorcery
+    class Sorcery : Spell
     {
+        // フィールド
+
+
+        // コンストラクタ
+
+
+        // プロパティ
+
+
+        // メソッド
+
     }
 }

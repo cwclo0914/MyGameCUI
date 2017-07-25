@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MyGameCUI
 {
-    class Settings
+    public static class Settings
     {
+        public static readonly int Aggro = 0;
+        public static readonly int Control = 1;
     }
 }

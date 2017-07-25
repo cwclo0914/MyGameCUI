@@ -8,5 +8,13 @@ namespace MyGameCUI
 {
     class Effect
     {
+        // コンストラクタ
+        public Effect()
+        {
+            Description = string.Empty;
+        }
+
+        // プロパティ
+        public string Description { get; set; }
     }
 }

@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace MyGameCUI
 {
-    class Instant
+    class Instant : Spell
     {
+        // フィールド
+
+
+        // コンストラクタ
+
+
+        // プロパティ
+
+
+        // メソッド
+
     }
 }
