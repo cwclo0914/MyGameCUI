@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace MyGameCUI
 {
-    class BattleField
+    class BattleField : AbstractDeck
     {
     }
 }

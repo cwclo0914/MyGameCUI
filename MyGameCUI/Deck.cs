@@ -9,7 +9,29 @@ using System.Threading.Tasks;
 /// </summary>
 namespace MyGameCUI
 {    
-    class Deck
+    class Deck : AbstractDeck
     {
+        public int Faction;
+
+        /// <summary>
+        /// デッキをシャッフルする
+        /// </summary>
+        public void Shuffle()
+        {
+            Random r = new Random();
+            int n = CountCard() - 1;
+
+            while (n > 0)
+            {
+                int w = r.Next(0, n);
+                Card c = CardList[n];
+                CardList[n] = CardList[w];
+                CardList[w] = c;
+                n--;
+            }
+
+        }
+
+
     }
 }

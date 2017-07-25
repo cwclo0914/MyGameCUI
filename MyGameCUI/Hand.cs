@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace MyGameCUI
 {   
-    class Hand
+    class Hand : AbstractDeck
     {
     }
 }
