@@ -8,5 +8,28 @@ namespace MyGameCUI
 {
     class CUI
     {
+        private GameMaster gameMaster;
+        public bool IsGameOver { get; set; }
+
+        public CUI()
+        {
+            this.gameMaster = new GameMaster();
+            IsGameOver = false;
+        }
+
+        public void ShowPrompt()
+        {
+            DescribeGame();
+        }
+
+        private void DescribeEntity()
+        {
+
+        }
+
+        private void DescribeGame()
+        {
+
+        }
     }
 }
