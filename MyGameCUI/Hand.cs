@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// 手札のカードリスト
+/// </summary>
 namespace MyGameCUI
-{
-    class Hand
+{   
+    class Hand : AbstractDeck
     {
     }
 }
