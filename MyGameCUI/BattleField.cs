@@ -31,15 +31,18 @@ namespace MyGameCUI
 
 
 
-            return card
+            return card;
         }
 
         /// <summary>
         /// モンスターをすべて選ぶ
         /// </summary>
-        public List<Card> SelectAllMonster()
+        public List<Card> SelectAllMonsters()
         {
+            List<Card> list = null;
 
+
+            return list;
 
         }
 
