@@ -24,6 +24,14 @@ namespace MyGameCUI
         /// </summary>
         public bool Penetrate { get; set; }
         /// <summary>
+        /// 守護
+        /// </summary>
+        public bool Protect { get; set; }
+        /// <summary>
+        /// 無敵（ダメージを受けない）
+        /// </summary>
+        public bool Invincible { get; set; }
+        /// <summary>
         /// モンスター以外をターゲットにできない
         /// </summary>
         public bool TargetMonsterOnly { get; set; }

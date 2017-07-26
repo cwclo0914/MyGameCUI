@@ -27,6 +27,7 @@ namespace MyGameCUI
             Attack = atk;
             CardType = Settings.Monster;
             StaysOnField = true;
+            Sleeping = true;
         }
 
         /// <summary>
@@ -45,6 +46,7 @@ namespace MyGameCUI
             Attack = atk;
             CardType = Settings.Monster;
             StaysOnField = true;
+            Sleeping = true;
         }
 
         /// <summary>
@@ -64,6 +66,7 @@ namespace MyGameCUI
             Attack = atk;
             CardType = Settings.Monster;
             StaysOnField = true;
+            Sleeping = true;
         }
 
         /// <summary>
@@ -84,6 +87,7 @@ namespace MyGameCUI
             Attack = atk;
             CardType = Settings.Monster;
             StaysOnField = true;
+            Sleeping = true;
         }
 
         // プロパティ

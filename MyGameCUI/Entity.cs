@@ -12,17 +12,17 @@ namespace MyGameCUI
         {
             Life = Settings.InitLife;
             MaxMana = 0;
-            CurrenMana = 0;
+            CurrentMana = 0;
         }
 
 
         public int Life { get; set; }
         public int MaxMana { get; set; }
-        public int CurrenMana { get; set; }
-        public Deck MyDeck;
-        public Hand MyHand;
-        public Grave MyGrave;
-        public BattleField MyBattleField;
+        public int CurrentMana { get; set; }
+        public Deck MyDeck { get; set; }
+        public Hand MyHand { get; set; }
+        public Grave MyGrave { get; set; }
+        public BattleField MyBattleField { get; set; }
         
 
         
