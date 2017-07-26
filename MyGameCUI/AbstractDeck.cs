@@ -40,7 +40,10 @@ namespace MyGameCUI
         /// <param name="n">取り除くカードのリスト内の番号</param>
         public void RemoveCard(int n)
         {
-            CardList.Remove(CardList[n]);
+            if (CountCard() > 0)
+            {
+                CardList.Remove(CardList[n]);
+            }
         }
 
         /// <summary>

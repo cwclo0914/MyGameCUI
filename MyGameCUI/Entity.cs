@@ -9,5 +9,22 @@ namespace MyGameCUI
     class Entity
     {
 
+
+        Entity()
+        {
+            Life = 
+
+
+        }
+
+
+        public int Life { get; set; }
+        public int MaxMana { get; set; }
+        public int CurrenMana { get; set; }
+       
+
+
+
+
     }
 }
