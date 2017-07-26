@@ -17,16 +17,13 @@ namespace MyGameCUI
         {
             HP = hp;
             Strength = str;
+            CardType = Settings.Monster;
         }
 
         // プロパティ
-        public override int HP { get; set; }
-        public override int Strength { get; set; }
+
 
         // メソッド
-        public override void AddEffect()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

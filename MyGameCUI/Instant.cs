@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace MyGameCUI
 {
-    class Instant : Spell
+    class Instant : Card
     {
         // フィールド
 
 
         // コンストラクタ
-
+        public Instant(string name, int cost, int faction):
+            base(name, cost, faction)
+        {
+            CardType = Settings.Instant;
+        }
 
         // プロパティ
 
