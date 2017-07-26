@@ -117,9 +117,23 @@ namespace MyGameCUI
         /// 攻撃力
         /// </summary>
         public int Attack { get; set; }
+
         // public string FrameImage { get; set; }
         // public string CardImage { get; set; }
 
         // メソッド
+        /// <summary>
+        /// モンスターがSleepする
+        /// </summary>
+        public virtual void Sleep()
+        {
+        }
+
+        /// <summary>
+        /// モンスターがWakeUpする
+        /// </summary>
+        public virtual void WakeUp()
+        {
+        }
     }
 }

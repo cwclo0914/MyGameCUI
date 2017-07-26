@@ -134,6 +134,35 @@ namespace MyGameCUI
         }
     }
 
+    class EnchantSelfOnMonsterEffect : Effect
+    {
+        // フィールド
+        private Card target;
+        private int hpIncre; // 体力上昇値
+        private int atkIncre; // 攻撃力上昇値
+
+        // コンストラクタ
+        public EnchantSelfOnMonsterEffect(Entity owner, int hp, int atk)
+            : base(owner)
+        {
+            hpIncre = hp;
+            atkIncre = atk;
+            Description += "モンスターに攻撃するとき、自分を" + hpIncre.ToString("+#;-#;0") + "/" + atkIncre.ToString("+#;-#;0") + "する"; // +/-の符号を強制的に表示させる
+        }
+
+        // メソッド
+        public override void DetermineTarget()
+        {
+            List<Card> targetList = Owner.MyBattleField.SelectSuitableCards(x => true);
+            target = 
+        }
+
+        public override void ApplyEffect()
+        {
+            
+        }
+    }
+
     /// <summary>
     /// 相手のモンスター一体にダメージを与える（！1枚選択未完成）
     /// </summary>
@@ -215,4 +244,6 @@ namespace MyGameCUI
             }
         }
     }
+
+    class 
 }
