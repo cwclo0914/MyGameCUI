@@ -25,9 +25,10 @@ namespace MyGameCUI
 
         // メソッド
         /// <summary>
-        /// エフェクト使用
+        /// エフェクト使用（対象あり）
         /// </summary>
-        public abstract void ApplyEffect();
+        /// <param name="entity">エフェクトの対象</param>
+        public abstract void ApplyEffect(Entity entity);
     }
 
     /// <summary>
@@ -52,21 +53,15 @@ namespace MyGameCUI
             Description += "召喚時、味方のモンスター一体を" + hpIncre.ToString("+#;-#;0") + "/" + atkIncre.ToString("+#;-#;0") + "する"; // +/-の符号を強制的に表示させる
         }
 
+        //public EnchantSingleEffect(int hp, int atk, int costthreshold)
+
         // メソッド
         /// <summary>
         /// 味方のモンスターを指定させ、強化の効果を発揮する
         /// </summary>
-        public override void ApplyEffect()
+        public override void ApplyEffect(Entity ally)
         {
-            EnchantSingle();
-        }
-
-        /// <summary>
-        /// 味方のモンスターを指定させ、強化の効果を発揮する
-        /// </summary>
-        private void EnchantSingle()
-        {
-            Card targetMonster = TargetAllyMonster(); // TargetAllyMonster()で味方のモンスター一体をreturn
+            Card targetMonster = ally.MyBattleField.SelectSingleMonster(); // 味方のモンスター一体をreturn
             targetMonster.HP += hpIncre;
             targetMonster.Attack += atkIncre;
         }
@@ -98,17 +93,9 @@ namespace MyGameCUI
         /// <summary>
         /// 味方のモンスター全てに強化の効果を発揮する
         /// </summary>
-        public override void ApplyEffect()
+        public override void ApplyEffect(Entity ally)
         {
-            EnchantAllies();
-        }
-
-        /// <summary>
-        /// 味方のモンスター全てに強化の効果を発揮する
-        /// </summary>
-        private void EnchantAllies()
-        {
-            List<Card> targetMonsters = TargetAllAllies(); // TargetAllAllies()で味方のモンスター全てをreturn（List<Card>で）
+            List<Card> targetMonsters = SelectAllMonster(); // 味方のモンスター全てをreturn（List<Card>で）
             foreach (Card monster in targetMonsters)
             {
                 monster.HP += hpIncre;
@@ -140,17 +127,9 @@ namespace MyGameCUI
         /// <summary>
         /// 相手のモンスターを指定させ、ダメージを与える
         /// </summary>
-        public override void ApplyEffect()
+        public override void ApplyEffect(Entity enemy)
         {
-            DamageSingle();
-        }
-
-        /// <summary>
-        /// 相手のモンスターを指定させ、ダメージを与える
-        /// </summary>
-        private void DamageSingle()
-        {
-            Card targetEnemy = TargetEnemyMonster(); // TargetEnemyMonster()で相手のモンスター一体をreturn
+            Card targetEnemy = SelectSingleMonster(); // 相手のモンスター一体をreturn
             targetEnemy.HP -= damage;
         }
     }
@@ -178,20 +157,12 @@ namespace MyGameCUI
         /// <summary>
         /// 相手のモンスターを指定させ、ダメージを与える
         /// </summary>
-        public override void ApplyEffect()
+        public override void ApplyEffect(Entity enemy)
         {
-            DamageEnemies();
-        }
-
-        /// <summary>
-        /// 相手のモンスターを指定させ、ダメージを与える
-        /// </summary>
-        private void DamageEnemies()
-        {
-            List<Card> targetEnemies = TargetAllEnemies(); // TargetAllEnemies()で相手のモンスター全てをreturn（List<Card>で）
-            foreach (Card enemy in targetEnemies)
+            List<Card> targetEnemies = SelectAllMonster(); // 相手のモンスター全てをreturn（List<Card>で）
+            foreach (Card monster in targetEnemies)
             {
-                enemy.HP -= damage;
+                monster.HP -= damage;
             }
         }
     }

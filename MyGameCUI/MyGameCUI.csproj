@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ability.cs" />
     <Compile Include="AbstractDeck.cs" />
     <Compile Include="BattleField.cs" />
     <Compile Include="Card.cs" />
