@@ -12,8 +12,44 @@ namespace MyGameCUI
 
 
         // コンストラクタ
-        public Sorcery(string name, int cost, int faction):
-            base(name, cost, faction)
+        /// <summary>
+        /// エフェクト1つのソーサリーカード
+        /// </summary>
+        /// <param name="name">名前</param>
+        /// <param name="cost">コスト</param>
+        /// <param name="faction">勢力</param>
+        /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
+        public Sorcery(string name, int cost, int faction, Effect eff1)
+            : base(name, cost, faction, eff1)
+        {
+            CardType = Settings.Sorcery;
+        }
+
+        /// <summary>
+        /// エフェクト2つのソーサリーカード
+        /// </summary>
+        /// <param name="name">名前</param>
+        /// <param name="cost">コスト</param>
+        /// <param name="faction">勢力</param>
+        /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
+        /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
+        public Sorcery(string name, int cost, int faction, Effect eff1, Effect eff2)
+           : base(name, cost, faction, eff1, eff2)
+        {
+            CardType = Settings.Sorcery;
+        }
+
+        /// <summary>
+        /// エフェクト3つのソーサリーカード
+        /// </summary>
+        /// <param name="name">名前</param>
+        /// <param name="cost">コスト</param>
+        /// <param name="faction">勢力</param>
+        /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
+        /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
+        /// <param name="eff3">3つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
+        public Sorcery(string name, int cost, int faction, Effect eff1, Effect eff2, Effect eff3)
+         : base(name, cost, faction, eff1, eff2, eff3)
         {
             CardType = Settings.Sorcery;
         }
