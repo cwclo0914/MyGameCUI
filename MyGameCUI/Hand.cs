@@ -15,7 +15,7 @@ namespace MyGameCUI
         /// 使用可能な手札のリストを作る
         /// </summary>
         /// <returns></returns>
-        public List<Card> PlayableCard()
+        public List<Card> PlayableCards()
         {
             List<Card> list = null;
             SelectSuitableCards(PlayableCondition);

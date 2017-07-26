@@ -6,28 +6,34 @@ using System.Threading.Tasks;
 
 namespace MyGameCUI
 {
-    class CUI
+    static class CUI
     {
-        private GameMaster gameMaster;
-        public bool IsGameOver { get; set; }
-
-        public CUI()
+        public static void ShowMessage(string message, bool waitForInput = true)
         {
-            this.gameMaster = new GameMaster();
-            IsGameOver = false;
+            Console.WriteLine(message);
+            if (waitForInput)
+            {
+                Console.Read();
+            }
         }
 
-        public void ShowPrompt()
+        public static void ShowList(List<string> stringList, bool needsIndex = true)
         {
-            DescribeGame();
+            for (int i = 0; i < stringList.Count; i++)
+            {
+                if (needsIndex)
+                {
+                    Console.Write((i + 1) + ": ");
+                }
+                Console.WriteLine(stringList[i]);
+            }
         }
 
-        private void DescribeEntity()
+        private static void DescribeEntity()
         {
-
         }
 
-        private void DescribeGame()
+        private static void DescribeGame()
         {
 
         }
