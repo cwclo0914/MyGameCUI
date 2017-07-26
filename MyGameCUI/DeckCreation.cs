@@ -9,7 +9,7 @@ namespace MyGameCUI
     class DeckCreation
     {
         // フィールド
-        private List<Card> deck = new List<Card>();
+
 
         // メソッド
         /// <summary>
@@ -17,10 +17,9 @@ namespace MyGameCUI
         /// （最終的にはデータベースから引っ張ってきたい）
         /// </summary>
         /// <returns>デッキ"List<Card>"を返す</returns>
-        public List<Card> Create(Entity owner)
+        public void Create(Entity owner)
         {
-            deck.Add(new Monster("ゴブリン", 1, Settings.Aggro, 1, 1, new EnchantSingleEffect(owner, 2, 1)));
-            return deck;
+            owner.MyDeck.AddCard(new Monster("ゴブリン", 1, Settings.Aggro, 1, 1, new EnchantSingleEffect(owner, 2, 1)));
         }
 
     }
