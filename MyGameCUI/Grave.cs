@@ -11,19 +11,5 @@ namespace MyGameCUI
 {
     class Grave : AbstractDeck
     {
-
-        /// <summary>
-        /// 墓地にカードを置く
-        /// </summary>
-        /// <param name="card">墓地に置くカード</param>
-        public void AddGrave(Card card)
-        {
-
-
-
-        }
-
-
-
     }
 }

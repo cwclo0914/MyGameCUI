@@ -44,66 +44,26 @@ namespace MyGameCUI
             return card;
         }
 
-        /// <summary>
-        /// リストに入っているカードを１枚探す
-        /// </summary>
-        /// <param name="card">目的のカード</param>
-        /// <param name="searchType">検索方法：0名前 1種類</param>
-        /// <returns>リスト内の番号*存在しないとき-1</returns>
-        public int SearchCard(Card card,int searchType)
-        {
-            int cardNum = -1;
-
-            switch (searchType)
-            {
-                case 0:
-                    //名前指定の時
-                    cardNum = NameSearchCard(card);
-                    break;
-                    
-                case 1:
-                    //種類検索のとき
-                    cardNum = TypeSearchCard(card);
-                    break;
-
-            }
-
-            return cardNum;
-        }
 
         /// <summary>
-        /// 名前指定されたときにカードを探す方法
+        /// 条件に合うカードを探す
         /// </summary>
-        public int NameSearchCard(Card card)
+        /// <param name="lambla">条件</param>
+        /// <returns>条件に合ったカードのリスト</returns>
+        public List<Card> SelectSuitableCards(Func<Card,bool> lambda)
         {
-            for(int i= 0; i < CountCard(); i++)
+            List<Card> list = null;
+
+            foreach(Card card in CardList)
             {
-                if(CardList[i].Name == card.Name)
+                if (lambda(card))
                 {
-                    return i;
+                    list.Add(card);
                 }
-            }
-            return -1;
 
-        }
-
-        /// <summary>
-        /// 種類指定されたときにカードを探す方法
-        /// </summary>
-        /// <param name="card"></param>
-        /// <returns></returns>
-        public int TypeSearchCard(Card card)
-        {
-            for (int i = 0; i < CountCard(); i++)
-            {
-                if (CardList[i].CardType == card.CardType)
-                {
-                    return i;
-                }
             }
-            return -1;
-        }           
-        
+            return list;
+        }        
 
     }
 }
