@@ -10,7 +10,6 @@ namespace MyGameCUI
     {
         // フィールド
 
-
         // コンストラクタ
         /// <summary>
         /// エフェクトなしのカード
@@ -77,12 +76,37 @@ namespace MyGameCUI
         }
 
         // プロパティ
+        /// <summary>
+        /// 名前
+        /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// コスト
+        /// </summary>
         public int Cost { get; set; }
+        /// <summary>
+        /// 勢力
+        /// </summary>
         public int Faction { get; set; }
+        /// <summary>
+        /// Settingsの静的変数で設定すること（Monster, Sorcery, Instant）
+        /// </summary>
         public int CardType { get; set; }
+        /// <summary>
+        /// True: フィールドに残る、False: フィールドに残らない
+        /// </summary>
+        public bool StaysOnField { get; set; }
+        /// <summary>
+        /// エフェクトのリスト
+        /// </summary>
         public List<Effect> CardEffect { get; set; }
+        /// <summary>
+        /// 体力
+        /// </summary>
         public int HP { get; set; }
+        /// <summary>
+        /// 攻撃力
+        /// </summary>
         public int Attack { get; set; }
         // public string FrameImage { get; set; }
         // public string CardImage { get; set; }

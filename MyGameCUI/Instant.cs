@@ -23,6 +23,7 @@ namespace MyGameCUI
             : base(name, cost, faction, eff1)
         {
             CardType = Settings.Instant;
+            StaysOnField = false;
         }
 
         /// <summary>
@@ -37,6 +38,7 @@ namespace MyGameCUI
            : base(name, cost, faction, eff1, eff2)
         {
             CardType = Settings.Instant;
+            StaysOnField = false;
         }
 
         /// <summary>
@@ -52,8 +54,8 @@ namespace MyGameCUI
          : base(name, cost, faction, eff1, eff2, eff3)
         {
             CardType = Settings.Instant;
+            StaysOnField = false;
         }
-
 
         // プロパティ
 

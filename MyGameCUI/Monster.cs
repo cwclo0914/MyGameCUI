@@ -26,6 +26,7 @@ namespace MyGameCUI
             HP = hp;
             Attack = atk;
             CardType = Settings.Monster;
+            StaysOnField = true;
         }
 
         /// <summary>
@@ -37,12 +38,13 @@ namespace MyGameCUI
         /// <param name="hp">体力</param>
         /// <param name="atk">攻撃力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Monster(string name, int cost, int faction, int hp, int str, Effect eff1)
+        public Monster(string name, int cost, int faction, int hp, int atk, Effect eff1)
             : base(name, cost, faction, eff1)
         {
             HP = hp;
-            Attack = str;
+            Attack = atk;
             CardType = Settings.Monster;
+            StaysOnField = true;
         }
 
         /// <summary>
@@ -55,12 +57,13 @@ namespace MyGameCUI
         /// <param name="atk">攻撃力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Monster(string name, int cost, int faction, int hp, int str, Effect eff1, Effect eff2)
+        public Monster(string name, int cost, int faction, int hp, int atk, Effect eff1, Effect eff2)
             : base(name, cost, faction, eff1, eff2)
         {
             HP = hp;
-            Attack = str;
+            Attack = atk;
             CardType = Settings.Monster;
+            StaysOnField = true;
         }
 
         /// <summary>
@@ -74,12 +77,13 @@ namespace MyGameCUI
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff3">3つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Monster(string name, int cost, int faction, int hp, int str, Effect eff1, Effect eff2, Effect eff3)
+        public Monster(string name, int cost, int faction, int hp, int atk, Effect eff1, Effect eff2, Effect eff3)
             : base(name, cost, faction, eff1, eff2, eff3)
         {
             HP = hp;
-            Attack = str;
+            Attack = atk;
             CardType = Settings.Monster;
+            StaysOnField = true;
         }
 
         // プロパティ

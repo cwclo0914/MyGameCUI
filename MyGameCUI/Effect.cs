@@ -36,8 +36,8 @@ namespace MyGameCUI
     class EnchantOneHPStrEffect : Effect
     {
         // フィールド
-        private int hpIncre;
-        private int atkIncre;
+        private int hpIncre; // 体力上昇値
+        private int atkIncre; // 攻撃力上昇値
 
         // コンストラクタ
         /// <summary>
@@ -53,6 +53,10 @@ namespace MyGameCUI
         }
 
         // メソッド
+        /// <summary>
+        /// 味方のカードを指定させ、強化の効果を発揮する
+        /// （！未完成）
+        /// </summary>
         public override void ApplyEffect()
         {
             EnchantOneHPAtk();
@@ -60,6 +64,7 @@ namespace MyGameCUI
 
         /// <summary>
         /// 味方のカードを指定させ、強化の効果を発揮する
+        /// （！未完成）
         /// </summary>
         private void EnchantOneHPAtk()
         {
