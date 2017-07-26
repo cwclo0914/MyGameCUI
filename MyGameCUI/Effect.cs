@@ -44,7 +44,7 @@ namespace MyGameCUI
     }
 
     /// <summary>
-    /// 味方のモンスター一体の体力と攻撃力を上昇させる（！return値未完成）
+    /// 味方のモンスター一体の体力と攻撃力を上昇させる（！1枚選択未完成）
     /// </summary>
     class EnchantSingleEffect : Effect
     {
@@ -89,7 +89,7 @@ namespace MyGameCUI
     }
 
     /// <summary>
-    /// 召喚されたもの以外、自分のモンスター全体の体力と攻撃力を上昇させる（！return値未完成）
+    /// 召喚されたもの以外、自分のモンスター全体の体力と攻撃力を上昇させる（！コスト条件未完成）
     /// </summary>
     class EnchantAlliesEffect : Effect
     {
@@ -135,7 +135,7 @@ namespace MyGameCUI
     }
 
     /// <summary>
-    /// 相手のモンスター一体にダメージを与える（！return値未完成）
+    /// 相手のモンスター一体にダメージを与える（！1枚選択未完成）
     /// </summary>
     class DamageSingleEffect : Effect
     {
@@ -151,7 +151,6 @@ namespace MyGameCUI
         public DamageSingleEffect(Entity owner, int dam)
             : base(owner)
         {
-            Owner = owner;
             damage = dam;
             Description += "召喚時、相手のモンスター一体に" + damage.ToString() + "ダメージ"; // ToStringを一致させるべき？
         }
@@ -176,7 +175,7 @@ namespace MyGameCUI
     }
 
     /// <summary>
-    /// 相手のモンスター全てにダメージを与える（！return値未完成）
+    /// 相手のモンスター全てにダメージを与える（！コスト条件未完成）
     /// </summary>
     class DamageEnemiesEffect : Effect
     {
@@ -192,7 +191,6 @@ namespace MyGameCUI
         public DamageEnemiesEffect(Entity owner, int dam)
             : base(owner)
         {
-            Owner = owner;
             damage = dam;
             Description += "召喚時、相手のモンスター全てに" + damage.ToString() + "ダメージ"; // ToStringを一致させるべき？
         }
