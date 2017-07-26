@@ -11,18 +11,38 @@ namespace MyGameCUI
 {   
     class Hand : AbstractDeck
     {
-
-        public List<Card> PlayableCard(Func<Card,bool> lambda) {
+        /// <summary>
+        /// 使用可能な手札のリストを作る
+        /// </summary>
+        /// <returns></returns>
+        public List<Card> PlayableCard()
+        {
             List<Card> list = null;
-
-
-
-
+            SelectSuitableCards(PlayableCondition);
+            
             return list;
         }
 
+        /// <summary>
+        /// 手札のカードが使えるための条件
+        /// </summary>
+        /// <param name="card"></param>
+        /// <returns></returns>
+        public bool PlayableCondition(Card card)
+        {            
+            Entity ent = GameInfo.EntityAttacking;
+            //マナが足りていないときはfalse
+            if (ent.CurrentMana<card.Cost){ return false; }
+            
+            //モンスターの場合
+            if(card.CardType == Settings.Monster)
+            {
+                //フィールドが埋まっていたら
+                if(ent.MyBattleField.CountCard() == Settings.MaxCardOnField){ return false; }
+                else { return true; }
+            }else { return true; }
+        }
         
-
 
     }
 }

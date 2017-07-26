@@ -15,7 +15,7 @@ namespace MyGameCUI
         /// <summary>
         /// カードの束
         /// </summary>
-        public List<Card> CardList; 
+        public List<Card> CardList;
 
         /// <summary>
         /// カードの枚数を数える
@@ -26,7 +26,15 @@ namespace MyGameCUI
             return CardList.Count();
         }
 
-                
+        /// <summary>
+        /// カードを追加する
+        /// </summary>      
+        public void AddCard(Card card)
+        {
+            CardList.Add(card);
+
+        }
+
         /// <summary>
         /// カードを１枚、リストから取り除く
         /// </summary>
@@ -50,20 +58,10 @@ namespace MyGameCUI
         /// </summary>
         /// <param name="lambla">条件</param>
         /// <returns>条件に合ったカードのリスト</returns>
-        public List<Card> SelectSuitableCards(Func<Card,bool> lambda)
+        public List<Card> SelectSuitableCards(Func<Card, bool> lambda)
         {
-            List<Card> list = null;
-
-            foreach(Card card in CardList)
-            {
-                if (lambda(card))
-                {
-                    list.Add(card);
-                }
-
-            }
-            return list;
-        }        
+            return CardList.Where(lambda).ToList();
+        }
 
     }
 }
