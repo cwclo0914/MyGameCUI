@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace MyGameCUI
 {
-    class AbstractDeck
+    abstract class AbstractDeck
     {
 
         /// <summary>
@@ -26,19 +26,7 @@ namespace MyGameCUI
             return CardList.Count();
         }
 
-
-        /*
-        /// <summary>
-        ///カードを一枚、リストに追加する
-        /// </summary>
-        /// <param name="card">追加するカード</param>
-        /// <returns>追加が成功したかどうか</returns>
-        public virtual bool AddCard(Card card){
-            CardList.Add(card);
-            return true;
-        }
-        */
-        
+                
         /// <summary>
         /// カードを１枚、リストから取り除く
         /// </summary>

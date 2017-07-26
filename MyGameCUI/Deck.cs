@@ -41,6 +41,19 @@ namespace MyGameCUI
 
         }
 
+        /// <summary>
+        /// 入れられたカードリストからデッキを作る
+        /// </summary>
+        /// <param name="list">作りたいデッキ</param>
+        public void CreateDeck(List<Card> list)
+        {
+
+            for(int i = 0; i < list.Count; i++)
+            {
+                CardList.Add(list[i]);
+            }
+
+        }
 
     }
 }
