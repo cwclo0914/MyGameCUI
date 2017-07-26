@@ -11,5 +11,8 @@ namespace MyGameCUI
 {
     class Grave : AbstractDeck
     {
+        public Grave(List<Card> cardList): base(cardList)
+        {
+        }
     }
 }

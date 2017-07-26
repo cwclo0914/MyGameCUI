@@ -6,60 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyGameCUI
 {
-    /*
-     * ゲームの状態を表すクラスのためのインターフェイス
-     * その状態で行うべき処理のメソッドと、次の状態を返すメソッドを実装する
-     */
-    interface IGameState
-    {
-        void DoProcess();
-        IGameState NextState();
-    }
-
-    /*
-     * 以下、GameStateの実装クラス
-     * 同じ状態のインスタンスが複数あっても仕方ないので、シングルトンパターンを使用
-     */
-    class GameStateDraw : IGameState
-    {
-        private static GameStateDraw instance = new GameStateDraw();
-        public static GameStateDraw GetInstance()
-        {
-            return instance;
-        }
-
-        public void DoProcess()
-        {
-            CUI.ShowMessage("starting GameStateDraw process...");
-
-        }
-
-        public IGameState NextState()
-        {
-            return GameStateMain.GetInstance();
-        }
-    }
-
-    class GameStateMain : IGameState
-    {
-        private static GameStateMain instance = new GameStateMain();
-        public static GameStateMain GetInstance()
-        {
-            return instance;
-        }
-
-        public void DoProcess()
-        {
-            CUI.ShowMessage("starting GameStateMain process...");
-            CUI.ShowMessage("kill entity 1");
-            GameInfo.EntityAttacking.Life -= 100;
-        }
-
-        public IGameState NextState()
-        {
-            return GameStateMain.GetInstance();
-        }
-    }
+ 
 
     class GameMaster
     {
@@ -74,7 +21,7 @@ namespace MyGameCUI
         public void StartGame()
         {
             GameInfo.Init();
-            state = GameStateDraw.GetInstance();
+            state = GameStateInit.GetInstance();
             while (!IsGameOver())
             {
                 GoToNextState();

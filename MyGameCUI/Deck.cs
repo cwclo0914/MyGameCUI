@@ -13,11 +13,15 @@ namespace MyGameCUI
     {
         public int Faction;
 
+        public Deck(List<Card> cardList): base(cardList)
+        {
+        }
+
         /// <summary>
         /// デッキから上からカードを１枚引く
         /// </summary>
         /// <returns>引いたカード、なければnull</returns>
-        public Card Draw()
+        public Card DrawTopCard()
         {
             return RemoveCard(0);
         }
@@ -25,6 +29,7 @@ namespace MyGameCUI
         /// <summary>
         /// デッキをシャッフルする
         /// </summary>
+        /// Fisher-Yatesアルゴリズム
         public void Shuffle()
         {
             Random r = new Random();
@@ -38,22 +43,6 @@ namespace MyGameCUI
                 CardList[w] = c;
                 n--;
             }
-
         }
-
-        /// <summary>
-        /// 入れられたカードリストからデッキを作る
-        /// </summary>
-        /// <param name="list">作りたいデッキ</param>
-        public void CreateDeck(List<Card> list)
-        {
-
-            for(int i = 0; i < list.Count; i++)
-            {
-                CardList.Add(list[i]);
-            }
-
-        }
-
     }
 }

@@ -17,6 +17,16 @@ namespace MyGameCUI
         /// </summary>
         public List<Card> CardList;
 
+        public AbstractDeck()
+        {
+
+        }
+
+        public AbstractDeck(List<Card> cardList)
+        {
+            CardList = cardList;
+        }
+
         /// <summary>
         /// カードの枚数を数える
         /// </summary>

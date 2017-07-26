@@ -55,6 +55,7 @@
     <Compile Include="GameInfo.cs" />
     <Compile Include="Grave.cs" />
     <Compile Include="Hand.cs" />
+    <Compile Include="IGameState.cs" />
     <Compile Include="Instant.cs" />
     <Compile Include="GameMaster.cs" />
     <Compile Include="Monster.cs" />

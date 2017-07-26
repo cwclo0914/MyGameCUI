@@ -78,6 +78,11 @@ namespace MyGameCUI
             target = SelectOne(targetList); // 味方のモンスター一体をreturn
         }
 
+        private Card SelectOne(List<Card> targetList)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 味方のモンスターを指定させ、強化の効果を発揮する
         /// </summary>
@@ -163,6 +168,11 @@ namespace MyGameCUI
         {
             List<Card> targetList = Opponent.MyBattleField.SelectSuitableCards(x => true);
             target = SelectOne(targetList); // 味方のモンスター一体をreturn
+        }
+
+        private Card SelectOne(List<Card> targetList)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

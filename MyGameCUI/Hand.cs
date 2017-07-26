@@ -11,6 +11,9 @@ namespace MyGameCUI
 {   
     class Hand : AbstractDeck
     {
+        public Hand(List<Card> cardList): base(cardList)
+        {
+        }
         /// <summary>
         /// 使用可能な手札のリストを作る
         /// </summary>

@@ -17,6 +17,21 @@ namespace MyGameCUI
             }
         }
 
+        /*
+         * AbstractDeckの中身のカード一覧を表示する。detailedフラグをtrueにすると詳細表示する
+         */
+        public static void ShowAbstractDeck(AbstractDeck abstDeck, bool detailed = true)
+        {
+            if (detailed)
+            {
+                ShowList(abstDeck.CardList.Select(card => card.Name + " Cost: " + card.Cost + "Type: " + card.GetType()).ToList());
+            }
+            else
+            {
+                ShowList(abstDeck.CardList.Select(card => card.Name).ToList());
+            }
+        }
+
         public static void ShowList(List<string> stringList, bool needsIndex = true)
         {
             for (int i = 0; i < stringList.Count; i++)

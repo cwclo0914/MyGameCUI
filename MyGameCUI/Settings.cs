@@ -16,6 +16,7 @@ namespace MyGameCUI
         public static readonly int Instant = 2;
 
         public static readonly int MaxCardOnField = 5;
+        public static readonly int InitHand = 5;
         public static readonly int MaxHand = 9;
         public static readonly int MaxDeck = 40;
         public static readonly int InitLife = 20;

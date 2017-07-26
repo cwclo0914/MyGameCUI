@@ -38,6 +38,7 @@ namespace MyGameCUI
             Name = name;
             Cost = cost;
             Faction = faction;
+            CardEffect = new List<Effect>();
             CardEffect.Add(eff1);
             LightUp = false;
         }
