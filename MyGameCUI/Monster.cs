@@ -9,6 +9,10 @@ namespace MyGameCUI
     class Monster : Card
     {
         // フィールド
+        /// <summary>
+        /// 最初の攻撃できないターンはTrue、それ以降はFalse
+        /// </summary>
+        private bool sleeping;
 
 
         // コンストラクタ
@@ -27,7 +31,8 @@ namespace MyGameCUI
             Attack = atk;
             CardType = Settings.Monster;
             StaysOnField = true;
-            Sleeping = true;
+            sleeping = true;
+            MonsterAbility = new Ability();
         }
 
         /// <summary>
@@ -46,7 +51,8 @@ namespace MyGameCUI
             Attack = atk;
             CardType = Settings.Monster;
             StaysOnField = true;
-            Sleeping = true;
+            sleeping = true;
+            MonsterAbility = new Ability();
         }
 
         /// <summary>
@@ -66,7 +72,8 @@ namespace MyGameCUI
             Attack = atk;
             CardType = Settings.Monster;
             StaysOnField = true;
-            Sleeping = true;
+            sleeping = true;
+            MonsterAbility = new Ability();
         }
 
         /// <summary>
@@ -87,16 +94,25 @@ namespace MyGameCUI
             Attack = atk;
             CardType = Settings.Monster;
             StaysOnField = true;
-            Sleeping = true;
+            sleeping = true;
+            MonsterAbility = new Ability();
         }
 
         // プロパティ
         /// <summary>
-        /// 最初の攻撃できないターンはTrue、それ以降はFalse
+        /// モンスターのアビリティ
         /// </summary>
-        public bool Sleeping { get; set; }
+        public Ability MonsterAbility { get; set; }
 
         // メソッド
+        public override void Sleep()
+        {
+            sleeping = true;
+        }
 
+        public override void WakeUp()
+        {
+            sleeping = false;
+        }
     }
 }

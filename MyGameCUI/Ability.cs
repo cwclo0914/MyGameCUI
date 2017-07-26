@@ -11,7 +11,12 @@ namespace MyGameCUI
         // コンストラクタ
         public Ability()
         {
-
+            InstantAttack = false;
+            Penetrate = false;
+            Protect = false;
+            Invincible = false;
+            TargetMonsterOnly = false;
+            DoubleAttack = false;
         }
 
         // プロパティ
