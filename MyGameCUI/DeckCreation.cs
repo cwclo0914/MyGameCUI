@@ -20,10 +20,8 @@ namespace MyGameCUI
         public List<Card> Create()
         {
 
-
             return deck;
         }
 
-        private 
     }
 }

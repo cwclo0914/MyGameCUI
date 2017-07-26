@@ -87,7 +87,7 @@ namespace MyGameCUI
         }
 
         // プロパティ
-
+        public bool Sleeping { get; set; }
 
         // メソッド
 
