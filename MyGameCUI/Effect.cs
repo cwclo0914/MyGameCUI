@@ -95,7 +95,7 @@ namespace MyGameCUI
         /// </summary>
         public override void ApplyEffect(Entity ally)
         {
-            List<Card> targetMonsters = SelectAllMonster(); // 味方のモンスター全てをreturn（List<Card>で）
+            List<Card> targetMonsters = ally.MyBattleField.SelectAllMonsters(); // 味方のモンスター全てをreturn（List<Card>で）
             foreach (Card monster in targetMonsters)
             {
                 monster.HP += hpIncre;
@@ -129,8 +129,8 @@ namespace MyGameCUI
         /// </summary>
         public override void ApplyEffect(Entity enemy)
         {
-            Card targetEnemy = SelectSingleMonster(); // 相手のモンスター一体をreturn
-            targetEnemy.HP -= damage;
+            Card targetMonster = enemy.MyBattleField.SelectSingleMonster(); // 相手のモンスター一体をreturn
+            targetMonster.HP -= damage;
         }
     }
 
@@ -159,8 +159,8 @@ namespace MyGameCUI
         /// </summary>
         public override void ApplyEffect(Entity enemy)
         {
-            List<Card> targetEnemies = SelectAllMonster(); // 相手のモンスター全てをreturn（List<Card>で）
-            foreach (Card monster in targetEnemies)
+            List<Card> targetMonsters = enemy.MyBattleField.SelectAllMonsters(); // 相手のモンスター全てをreturn（List<Card>で）
+            foreach (Card monster in targetMonsters)
             {
                 monster.HP -= damage;
             }
