@@ -112,6 +112,5 @@ namespace MyGameCUI
         // public string CardImage { get; set; }
 
         // メソッド
-
     }
 }

@@ -11,5 +11,14 @@ namespace MyGameCUI
 {
     class BattleField : AbstractDeck
     {
+        public Card SelectSingleMonster()
+        {
+            return null;
+        }
+
+        public List<Card> SelectAllMonsters()
+        {
+            return null;
+        }
     }
 }
