@@ -25,5 +25,8 @@ namespace MyGameCUI
         public BattleField MyBattleField;
         
 
+        
+
+
     }
 }
