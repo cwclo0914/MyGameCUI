@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace MyGameCUI
 {
-    class GameInfo
+    static class GameInfo
     {
-        public Entity Entity1 { get; set; }
-        public Entity Entity2 { get; set; }
-        public int  TurnCount { get; set; }
+        public static Entity EntityAttacking { get; set; }
+        public static Entity EntityDefending { get; set; }
+        public static int TurnCount { get; set; }
 
-        public GameInfo()
+        public static void Init()
         {
-            Entity1 = new Entity();
-            Entity2 = new Entity();
+            EntityAttacking = new Entity();
+            EntityDefending = new Entity();
+            TurnCount = 0;
         }
-
     }
 }
+    

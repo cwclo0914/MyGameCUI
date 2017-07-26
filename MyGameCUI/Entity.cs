@@ -8,13 +8,12 @@ namespace MyGameCUI
 {
     class Entity
     {
-        Entity()
+        public Entity()
         {
             Life = Settings.InitLife;
             MaxMana = 0;
             CurrentMana = 0;
         }
-
 
         public int Life { get; set; }
         public int MaxMana { get; set; }
@@ -23,10 +22,5 @@ namespace MyGameCUI
         public Hand MyHand { get; set; }
         public Grave MyGrave { get; set; }
         public BattleField MyBattleField { get; set; }
-        
-
-        
-
-
     }
 }

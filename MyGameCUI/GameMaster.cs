@@ -10,11 +10,8 @@ namespace MyGameCUI
     {
         private Stack<Effect> effectStack;
 
-        public GameInfo GameInfo { get; set; }
-
         public GameMaster()
         {
-            GameInfo = new GameInfo();
         }
     }
 }
