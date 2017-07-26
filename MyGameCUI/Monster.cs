@@ -91,6 +91,9 @@ namespace MyGameCUI
         }
 
         // プロパティ
+        /// <summary>
+        /// 最初の攻撃できないターンはTrue、それ以降はFalse
+        /// </summary>
         public bool Sleeping { get; set; }
 
         // メソッド
