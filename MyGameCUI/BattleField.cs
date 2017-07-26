@@ -11,11 +11,8 @@ namespace MyGameCUI
 {
     class BattleField : AbstractDeck
     {
-
-
-
         /// <summary>
-        /// モンスターをフィールドから取り除く
+        /// モンスターを１体フィールドから取り除く
         /// </summary>
         /// <param name="n">取り除くモンスター</param>
         public void RemoveMonster(Card card){
@@ -27,17 +24,20 @@ namespace MyGameCUI
         /// <summary>
         /// モンスターを１体選ぶ
         /// </summary>
-        public void SelectAMonster()
+        public Card SelectSingleMonster()
         {
+            Card card = null;
 
 
 
+
+            return card
         }
 
         /// <summary>
         /// モンスターをすべて選ぶ
         /// </summary>
-        public void SelectAllMonster()
+        public List<Card> SelectAllMonster()
         {
 
 
