@@ -14,6 +14,15 @@ namespace MyGameCUI
         public int Faction;
 
         /// <summary>
+        /// デッキから上からカードを１枚引く
+        /// </summary>
+        /// <returns>引いたカード、なければnull</returns>
+        public Card Draw()
+        {
+            return RemoveCard(0);
+        }
+
+        /// <summary>
         /// デッキをシャッフルする
         /// </summary>
         public void Shuffle()
