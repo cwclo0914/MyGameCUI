@@ -14,6 +14,7 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクトなしのカード
         /// </summary>
+        /// <param name="owner">所有者</param>
         /// <param name="name">名前</param>
         /// <param name="cost">コスト</param>
         /// <param name="faction">勢力</param>
@@ -22,6 +23,7 @@ namespace MyGameCUI
             Name = name;
             Cost = cost;
             Faction = faction;
+            LightUp = false;
         }
 
         /// <summary>
@@ -37,6 +39,7 @@ namespace MyGameCUI
             Cost = cost;
             Faction = faction;
             CardEffect.Add(eff1);
+            LightUp = false;
         }
 
         /// <summary>
@@ -54,6 +57,7 @@ namespace MyGameCUI
             Faction = faction;
             CardEffect.Add(eff1);
             CardEffect.Add(eff2);
+            LightUp = false;
         }
 
         /// <summary>
@@ -73,6 +77,7 @@ namespace MyGameCUI
             CardEffect.Add(eff1);
             CardEffect.Add(eff2);
             CardEffect.Add(eff3);
+            LightUp = false;
         }
 
         // プロパティ
@@ -96,6 +101,10 @@ namespace MyGameCUI
         /// True: フィールドに残る、False: フィールドに残らない
         /// </summary>
         public bool StaysOnField { get; set; }
+        /// <summary>
+        /// 選択可能
+        /// </summary>
+        public bool LightUp { get; set; }
         /// <summary>
         /// エフェクトのリスト
         /// </summary>
