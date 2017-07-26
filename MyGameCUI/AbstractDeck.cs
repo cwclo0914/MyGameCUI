@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 /// </summary>
 namespace MyGameCUI
 {
-    abstract class AbstractDeck
+    class AbstractDeck
     {
 
         /// <summary>
@@ -26,24 +26,34 @@ namespace MyGameCUI
             return CardList.Count();
         }
 
+
+        /*
         /// <summary>
         ///カードを一枚、リストに追加する
         /// </summary>
         /// <param name="card">追加するカード</param>
-        public void AddCard(Card card){
+        /// <returns>追加が成功したかどうか</returns>
+        public virtual bool AddCard(Card card){
             CardList.Add(card);
+            return true;
         }
-
+        */
+        
         /// <summary>
         /// カードを１枚、リストから取り除く
         /// </summary>
         /// <param name="n">取り除くカードのリスト内の番号</param>
-        public void RemoveCard(int n)
+        /// <returns>取り除いたカード</returns>
+        public Card RemoveCard(int n)
         {
+            Card card = null;
             if (CountCard() > 0)
             {
+                card = CardList[n];
                 CardList.Remove(CardList[n]);
             }
+
+            return card;
         }
 
         /// <summary>
@@ -104,26 +114,8 @@ namespace MyGameCUI
                 }
             }
             return -1;
-        }
-             
-
-        //他のクラスに移したほうがいいかも
-
-        /// <summary>
-        /// 山札からカードを１枚引く
-        /// </summary>
-        /// <param name="entity"></param>
-        public void Draw(Entity entity)
-        {
-            int i = entity.MyHand.Countcard;
-            entity.Myhand.CardList[i] = entity.MyDeck.CardList[0];
-            entity.MyDeck.CardList.Remove(0);
-
-        }
-
-
-
-
+        }           
+        
 
     }
 }

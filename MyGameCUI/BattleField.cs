@@ -11,5 +11,10 @@ namespace MyGameCUI
 {
     class BattleField : AbstractDeck
     {
+
+        public override bool AddCard();
+
+
+
     }
 }
