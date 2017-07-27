@@ -14,10 +14,6 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクトなしのカード
         /// </summary>
-        /// <param name="owner">所有者</param>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
         public Card(string name, int cost, int faction)
         {
             Name = name;
@@ -29,9 +25,6 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクト1つのカード
         /// </summary>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         public Card(string name, int cost, int faction, Effect eff1)
         {
@@ -46,9 +39,6 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクト2つのカード
         /// </summary>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         public Card(string name, int cost, int faction, Effect eff1, Effect eff2)
@@ -64,9 +54,6 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクト3つのカード
         /// </summary>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff3">3つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
@@ -82,13 +69,7 @@ namespace MyGameCUI
         }
 
         // プロパティ
-        /// <summary>
-        /// 名前
-        /// </summary>
         public string Name { get; set; }
-        /// <summary>
-        /// コスト
-        /// </summary>
         public int Cost { get; set; }
         /// <summary>
         /// 勢力
@@ -103,36 +84,23 @@ namespace MyGameCUI
         /// </summary>
         public bool StaysOnField { get; set; }
         /// <summary>
-        /// 選択可能
+        /// 選択可能のカードが光るのに使用するフラグ
         /// </summary>
         public bool LightUp { get; set; }
         /// <summary>
         /// エフェクトのリスト
         /// </summary>
         public List<Effect> CardEffect { get; set; }
-        /// <summary>
-        /// 体力
-        /// </summary>
         public int HP { get; set; }
-        /// <summary>
-        /// 攻撃力
-        /// </summary>
         public int Attack { get; set; }
-
         // public string FrameImage { get; set; }
         // public string CardImage { get; set; }
 
         // メソッド
-        /// <summary>
-        /// モンスターがSleepする
-        /// </summary>
         public virtual void Sleep()
         {
         }
 
-        /// <summary>
-        /// モンスターがWakeUpする
-        /// </summary>
         public virtual void WakeUp()
         {
         }

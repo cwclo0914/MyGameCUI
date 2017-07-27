@@ -254,6 +254,4 @@ namespace MyGameCUI
             }
         }
     }
-
-    class 
 }
