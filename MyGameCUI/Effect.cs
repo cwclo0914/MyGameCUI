@@ -12,14 +12,10 @@ namespace MyGameCUI
     abstract class Effect
     {
         // コンストラクタ
-        public Effect(Entity owner)
+        public Effect(Card cardOfThisEffect)
         {
             Description = string.Empty;
-            Owner = owner;
-            if (owner == GameInfo.EntityAttacking)
-                Opponent = GameInfo.EntityDefending;
-            else
-                Opponent = GameInfo.EntityAttacking;
+            CardOfThisEffect = cardOfThisEffect;
         }
 
         // プロパティ
@@ -27,8 +23,10 @@ namespace MyGameCUI
         /// カードに表示させる文言
         /// </summary>
         public string Description { get; set; }
-        public Entity Owner { get; set; }
-        public Entity Opponent { get; set; }
+        /// <summary>
+        /// このエフェクトのインスタンスを保有するカード
+        /// </summary>
+        public Card CardOfThisEffect { get; set; }
 
         // メソッド
         /// <summary>
@@ -50,22 +48,23 @@ namespace MyGameCUI
     {
         // フィールド
         private Card target;
-        private int hpIncre; // 体力上昇値
-        private int atkIncre; // 攻撃力上昇値
+        private int hpIncrement;
+        private int atkIncrement;
         private int costThreshold;
 
         // コンストラクタ
         /// <summary>
         /// 自分のモンスター一体の体力と攻撃力を上昇させる
         /// </summary>
+        /// <param name="cardOfThisEffect">このエフェクトを保有するカード</param>
         /// <param name="hp">体力上昇値</param>
         /// <param name="atk">攻撃力上昇値</param>
-        public EnchantSingleEffect(Entity owner, int hp, int atk)
-            : base(owner)
+        public EnchantSingleEffect(Card cardOfThisEffect, int hp, int atk)
+            : base(cardOfThisEffect)
         {
-            hpIncre = hp;
-            atkIncre = atk;
-            Description += "召喚時、味方のモンスター一体を" + hpIncre.ToString("+#;-#;0") + "/" + atkIncre.ToString("+#;-#;0") + "する"; // +/-の符号を強制的に表示させる
+            hpIncrement = hp;
+            atkIncrement = atk;
+            Description += "召喚時、味方のモンスター一体を" + hpIncrement.ToString("+#;-#;0") + "/" + atkIncrement.ToString("+#;-#;0") + "する"; // +/-の符号を強制的に表示させる
         }
 
         // メソッド
@@ -74,11 +73,11 @@ namespace MyGameCUI
         /// </summary>
         public override void DetermineTarget()
         {
-            List<Card> targetList = Owner.MyBattleField.SelectSuitableCards(x => true);
+            List<Card> targetList = CardOfThisEffect.Owner.MyBattleField.SelectSuitableCards(x => true);
             target = SelectOne(targetList); // 味方のモンスター一体をreturn
         }
 
-        private Card SelectOne(List<Card> targetList)
+        private Card SelectOne(List<Card> targetList) // バトルフィールドで書くべき？
         {
             throw new NotImplementedException();
         }
@@ -88,8 +87,8 @@ namespace MyGameCUI
         /// </summary>
         public override void ApplyEffect()
         {
-            target.HP += hpIncre;
-            target.Attack += atkIncre;
+            target.HP += hpIncrement;
+            target.Attack += atkIncrement;
         }
     }
 
@@ -100,21 +99,22 @@ namespace MyGameCUI
     {
         // フィールド
         private List<Card> targetList;
-        private int hpIncre; // 体力上昇値
-        private int atkIncre; // 攻撃力上昇値
+        private int hpIncrement;
+        private int atkIncrement;
 
         // コンストラクタ
         /// <summary>
         /// 召喚されたもの以外、自分のモンスター全体の体力と攻撃力を上昇させる
         /// </summary>
+        /// <param name="cardOfThisEffect">このエフェクトを保有するカード</param>
         /// <param name="hp">体力上昇値</param>
         /// <param name="atk">攻撃力上昇値</param>
-        public EnchantAlliesEffect(Entity owner, int hp, int atk)
-            : base(owner)
+        public EnchantAlliesEffect(Card cardOfThisEffect, int hp, int atk)
+            : base(cardOfThisEffect)
         {
-            hpIncre = hp;
-            atkIncre = atk;
-            Description += "召喚時、自分以外の味方のモンスター全てを" + hpIncre.ToString("+#;-#;0") + "/" + atkIncre.ToString("+#;-#;0") + "する"; // +/-の符号を強制的に表示させる
+            hpIncrement = hp;
+            atkIncrement = atk;
+            Description += "召喚時、自分以外の味方のモンスター全てを" + hpIncrement.ToString("+#;-#;0") + "/" + atkIncrement.ToString("+#;-#;0") + "する"; // +/-の符号を強制的に表示させる
         }
 
         // メソッド
@@ -123,7 +123,7 @@ namespace MyGameCUI
         /// </summary>
         public override void DetermineTarget()
         {
-            targetList = Owner.MyBattleField.SelectSuitableCards(x => true);
+            targetList = CardOfThisEffect.Owner.MyBattleField.SelectSuitableCards(x => true);
         }
 
         /// <summary>
@@ -133,8 +133,8 @@ namespace MyGameCUI
         {
             foreach (Card monster in targetList)
             {
-                monster.HP += hpIncre;
-                monster.Attack += atkIncre;
+                monster.HP += hpIncrement;
+                monster.Attack += atkIncrement;
             }
         }
     }
@@ -143,23 +143,22 @@ namespace MyGameCUI
     {
         // フィールド
         private Card target;
-        private int hpIncre; // 体力上昇値
-        private int atkIncre; // 攻撃力上昇値
+        private int hpIncrement;
+        private int atkIncrement;
 
         // コンストラクタ
-        public EnchantSelfOnMonsterEffect(Entity owner, int hp, int atk)
-            : base(owner)
+        public EnchantSelfOnMonsterEffect(Card cardOfThisEffect, int hp, int atk)
+            : base(cardOfThisEffect)
         {
-            hpIncre = hp;
-            atkIncre = atk;
-            Description += "モンスターに攻撃するとき、自分を" + hpIncre.ToString("+#;-#;0") + "/" + atkIncre.ToString("+#;-#;0") + "する"; // +/-の符号を強制的に表示させる
+            hpIncrement = hp;
+            atkIncrement = atk;
+            Description += "モンスターに攻撃するとき、自分を" + hpIncrement.ToString("+#;-#;0") + "/" + atkIncrement.ToString("+#;-#;0") + "する"; // +/-の符号を強制的に表示させる
         }
 
         // メソッド
         public override void DetermineTarget()
         {
-            List<Card> targetList = Owner.MyBattleField.SelectSuitableCards(x => true);
-            target = 
+            target = CardOfThisEffect;
         }
 
         public override void ApplyEffect()
@@ -175,15 +174,16 @@ namespace MyGameCUI
     {
         // フィールド
         private Card target;
-        private int damage; // ダメージ
+        private int damage;
 
         // コンストラクタ
         /// <summary>
         /// 相手のモンスター一体にダメージを与える
         /// </summary>
+        /// <param name="cardOfThisEffect">このエフェクトを保有するカード</param>
         /// <param name="dam">ダメージ</param>
-        public DamageSingleEffect(Entity owner, int dam)
-            : base(owner)
+        public DamageSingleEffect(Card cardOfThisEffect, int dam)
+            : base(cardOfThisEffect)
         {
             damage = dam;
             Description += "召喚時、相手のモンスター一体に" + damage.ToString() + "ダメージ"; // ToStringを一致させるべき？
@@ -195,7 +195,7 @@ namespace MyGameCUI
         /// </summary>
         public override void DetermineTarget()
         {
-            List<Card> targetList = Opponent.MyBattleField.SelectSuitableCards(x => true);
+            List<Card> targetList = CardOfThisEffect.Opponent.MyBattleField.SelectSuitableCards(x => true);
             target = SelectOne(targetList); // 味方のモンスター一体をreturn
         }
 
@@ -220,15 +220,16 @@ namespace MyGameCUI
     {
         // フィールド
         private List<Card> targetList;
-        private int damage; // ダメージ
+        private int damage;
 
         // コンストラクタ
         /// <summary>
         /// 相手のモンスター全てにダメージを与える
         /// </summary>
+        /// <param name="cardOfThisEffect">このエフェクトを保有するカード</param>
         /// <param name="dam">ダメージ</param>
-        public DamageEnemiesEffect(Entity owner, int dam)
-            : base(owner)
+        public DamageEnemiesEffect(Card cardOfThisEffect, int dam)
+            : base(cardOfThisEffect)
         {
             damage = dam;
             Description += "召喚時、相手のモンスター全てに" + damage.ToString() + "ダメージ"; // ToStringを一致させるべき？
@@ -240,11 +241,11 @@ namespace MyGameCUI
         /// </summary>
         public override void DetermineTarget()
         {
-            targetList = Owner.MyBattleField.SelectSuitableCards(x => true);
+            targetList = CardOfThisEffect.Opponent.MyBattleField.SelectSuitableCards(x => true);
         }
 
         /// <summary>
-        /// 相手のモンスターを指定させ、ダメージを与える
+        /// 対象となった相手のモンスターにダメージを与える
         /// </summary>
         public override void ApplyEffect()
         {
@@ -254,6 +255,4 @@ namespace MyGameCUI
             }
         }
     }
-
-    class 
 }
