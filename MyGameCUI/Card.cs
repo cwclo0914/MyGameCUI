@@ -14,20 +14,15 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクトなしのカード
         /// </summary>
+        /// <param name="owner">所有者</param>
         /// <param name="name">名前</param>
         /// <param name="cost">コスト</param>
         /// <param name="faction">勢力</param>
-        /// <param name="owner">所有者</param>
-        public Card(string name, int cost, int faction, Entity owner)
+        public Card(string name, int cost, int faction)
         {
             Name = name;
             Cost = cost;
             Faction = faction;
-            Owner = owner;
-            if (Owner == GameInfo.EntityAttacking)
-                Opponent = GameInfo.EntityDefending;
-            else
-                Opponent = GameInfo.EntityAttacking;
             LightUp = false;
         }
 
@@ -37,21 +32,15 @@ namespace MyGameCUI
         /// <param name="name">名前</param>
         /// <param name="cost">コスト</param>
         /// <param name="faction">勢力</param>
-        /// <param name="owner">所有者</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Card(string name, int cost, int faction, Entity owner, Effect eff1)
+        public Card(string name, int cost, int faction, Effect eff1)
         {
             Name = name;
             Cost = cost;
             Faction = faction;
-            Owner = owner;
-            if (Owner == GameInfo.EntityAttacking)
-                Opponent = GameInfo.EntityDefending;
-            else
-                Opponent = GameInfo.EntityAttacking;
-            LightUp = false;
             CardEffect = new List<Effect>();
             CardEffect.Add(eff1);
+            LightUp = false;
         }
 
         /// <summary>
@@ -60,23 +49,16 @@ namespace MyGameCUI
         /// <param name="name">名前</param>
         /// <param name="cost">コスト</param>
         /// <param name="faction">勢力</param>
-        /// <param name="owner">所有者</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Card(string name, int cost, int faction, Entity owner, Effect eff1, Effect eff2)
+        public Card(string name, int cost, int faction, Effect eff1, Effect eff2)
         {
             Name = name;
             Cost = cost;
             Faction = faction;
-            Owner = owner;
-            if (Owner == GameInfo.EntityAttacking)
-                Opponent = GameInfo.EntityDefending;
-            else
-                Opponent = GameInfo.EntityAttacking;
-            LightUp = false;
-            CardEffect = new List<Effect>();
             CardEffect.Add(eff1);
             CardEffect.Add(eff2);
+            LightUp = false;
         }
 
         /// <summary>
@@ -85,25 +67,18 @@ namespace MyGameCUI
         /// <param name="name">名前</param>
         /// <param name="cost">コスト</param>
         /// <param name="faction">勢力</param>
-        /// <param name="owner">所有者</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff3">3つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Card(string name, int cost, int faction, Entity owner, Effect eff1, Effect eff2, Effect eff3)
+        public Card(string name, int cost, int faction, Effect eff1, Effect eff2, Effect eff3)
         {
             Name = name;
             Cost = cost;
             Faction = faction;
-            Owner = owner;
-            if (Owner == GameInfo.EntityAttacking)
-                Opponent = GameInfo.EntityDefending;
-            else
-                Opponent = GameInfo.EntityAttacking;
-            LightUp = false;
-            CardEffect = new List<Effect>();
             CardEffect.Add(eff1);
             CardEffect.Add(eff2);
             CardEffect.Add(eff3);
+            LightUp = false;
         }
 
         // プロパティ
@@ -120,13 +95,17 @@ namespace MyGameCUI
         /// </summary>
         public int Faction { get; set; }
         /// <summary>
-        /// カードのインスタンスの所有者
+        /// Settingsの静的変数で設定すること（Monster, Sorcery, Instant）
         /// </summary>
-        public Entity Owner { get; set; }
+        public int CardType { get; set; }
         /// <summary>
-        /// 所有者にとっての対戦相手
+        /// True: フィールドに残る、False: フィールドに残らない
         /// </summary>
-        public Entity Opponent { get; set; }
+        public bool StaysOnField { get; set; }
+        /// <summary>
+        /// 選択可能
+        /// </summary>
+        public bool LightUp { get; set; }
         /// <summary>
         /// エフェクトのリスト
         /// </summary>
@@ -139,18 +118,6 @@ namespace MyGameCUI
         /// 攻撃力
         /// </summary>
         public int Attack { get; set; }
-        /// <summary>
-        /// Settingsの静的変数で設定すること（Monster, Sorcery, Instant）
-        /// </summary>
-        public int CardType { get; set; }
-        /// <summary>
-        /// True: フィールドに残る、False: フィールドに残らない
-        /// </summary>
-        public bool StaysOnField { get; set; }
-        /// <summary>
-        /// カードが選択可能であれば光る仕組みに使うフラグ
-        /// </summary>
-        public bool LightUp { get; set; }
 
         // public string FrameImage { get; set; }
         // public string CardImage { get; set; }
