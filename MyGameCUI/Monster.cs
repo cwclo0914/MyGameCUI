@@ -18,14 +18,8 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクトなしのモンスターカード
         /// </summary>
-        /// <param name="owner">所有者</param>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
-        /// <param name="hp">体力</param>
-        /// <param name="atk">攻撃力</param>
-        public Monster(Entity owner, string name, int cost, int faction, int hp, int atk)
-            : base(owner, name, cost, faction)
+        public Monster(string name, int cost, int faction, int hp, int atk)
+            : base(name, cost, faction)
         {
             HP = hp;
             Attack = atk;
@@ -38,15 +32,9 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクト1つのモンスターカード
         /// </summary>
-        /// <param name="owner">所有者</param>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
-        /// <param name="hp">体力</param>
-        /// <param name="atk">攻撃力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Monster(Entity owner, string name, int cost, int faction, int hp, int atk, Effect eff1)
-            : base(owner, name, cost, faction, eff1)
+        public Monster(string name, int cost, int faction, int hp, int atk, Effect eff1)
+            : base(name, cost, faction, eff1)
         {
             HP = hp;
             Attack = atk;
@@ -59,16 +47,10 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクト2つのモンスターカード
         /// </summary>
-        /// <param name="owner">所有者</param>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
-        /// <param name="hp">体力</param>
-        /// <param name="atk">攻撃力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Monster(Entity owner, string name, int cost, int faction, int hp, int atk, Effect eff1, Effect eff2)
-            : base(owner, name, cost, faction, eff1, eff2)
+        public Monster(string name, int cost, int faction, int hp, int atk, Effect eff1, Effect eff2)
+            : base(name, cost, faction, eff1, eff2)
         {
             HP = hp;
             Attack = atk;
@@ -81,17 +63,11 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクト3つのモンスターカード
         /// </summary>
-        /// <param name="owner">所有者</param>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
-        /// <param name="hp">体力</param>
-        /// <param name="atk">攻撃力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff3">3つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Monster(Entity owner, string name, int cost, int faction, int hp, int atk, Effect eff1, Effect eff2, Effect eff3)
-            : base(owner, name, cost, faction, eff1, eff2, eff3)
+        public Monster(string name, int cost, int faction, int hp, int atk, Effect eff1, Effect eff2, Effect eff3)
+            : base(name, cost, faction, eff1, eff2, eff3)
         {
             HP = hp;
             Attack = atk;

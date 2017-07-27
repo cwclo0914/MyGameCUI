@@ -15,13 +15,9 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクト1つのインスタントカード
         /// </summary>
-        /// <param name="owner">所有者</param>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Instant(Entity owner, string name, int cost, int faction, Effect eff1)
-            : base(owner, name, cost, faction, eff1)
+        public Instant(string name, int cost, int faction, Effect eff1)
+            : base(name, cost, faction, eff1)
         {
             CardType = Settings.Instant;
             StaysOnField = false;
@@ -30,14 +26,10 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクト2つのインスタントカード
         /// </summary>
-        /// <param name="owner">所有者</param>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Instant(Entity owner, string name, int cost, int faction, Effect eff1, Effect eff2)
-           : base(owner, name, cost, faction, eff1, eff2)
+        public Instant(string name, int cost, int faction, Effect eff1, Effect eff2)
+           : base(name, cost, faction, eff1, eff2)
         {
             CardType = Settings.Instant;
             StaysOnField = false;
@@ -46,15 +38,11 @@ namespace MyGameCUI
         /// <summary>
         /// エフェクト3つのインスタントカード
         /// </summary>
-        /// <param name="owner">所有者</param>
-        /// <param name="name">名前</param>
-        /// <param name="cost">コスト</param>
-        /// <param name="faction">勢力</param>
         /// <param name="eff1">1つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff2">2つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
         /// <param name="eff3">3つめのエフェクト（インスタンス"new xxxEffect()"で入力してください）</param>
-        public Instant(Entity owner, string name, int cost, int faction, Effect eff1, Effect eff2, Effect eff3)
-         : base(owner, name, cost, faction, eff1, eff2, eff3)
+        public Instant(string name, int cost, int faction, Effect eff1, Effect eff2, Effect eff3)
+         : base(name, cost, faction, eff1, eff2, eff3)
         {
             CardType = Settings.Instant;
             StaysOnField = false;
